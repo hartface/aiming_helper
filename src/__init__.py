@@ -13,9 +13,9 @@ def register():
 
 
 def unregister():
-    properties.unregister()
-    operators.unregister()
     panels.unregister()
+    operators.unregister()
+    properties.unregister()
 
 
 if __name__ == "__main__":

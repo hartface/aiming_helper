@@ -65,6 +65,7 @@ _draw_handle_2d = None
 class AIMING_HELPER_OT_toggle_visualize(bpy.types.Operator):
     bl_idname = "aiming_helper.toggle_visualize"
     bl_label = "Toggle Visualization"
+    bl_description = "Turn on visualization"
 
     def execute(self, context):
         global _draw_handle, _draw_handle_2d
@@ -96,10 +97,10 @@ class AIMING_HELPER_OT_toggle_visualize(bpy.types.Operator):
 class AIMING_HELPER_OT_clear(bpy.types.Operator):
     bl_idname = "aiming_helper.clear"
     bl_label = "Clear All Points"
-
+    bl_description = "Clear all set points"
+    
     def execute(self, context):
         props = context.scene.aiming_helper
-        props.visualizing = False
 
         for pt in ['eye', 'rear_sight', 'front_sight', 'target']:
             setattr(props, f"{pt}_set",    False)

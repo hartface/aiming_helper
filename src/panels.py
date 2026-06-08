@@ -29,12 +29,12 @@ class AIMING_HELPER_PT_panel(bpy.types.Panel):
             op.point_type = pt
 
         layout.separator()
-        layout.prop(props, "threshold")
+        layout.prop(props, "threshold", slider=True)
         layout.separator()
 
         vis_text = "Stop Visualizing" if props.visualizing else "Start Visualizing"
         layout.operator("aiming_helper.toggle_visualize", text=vis_text,
-                        icon='HIDE_ON' if props.visualizing else 'X')
+                        icon='X' if props.visualizing else 'HIDE_OFF')
         layout.operator("aiming_helper.clear", text="Clear All", icon='X')
     
 

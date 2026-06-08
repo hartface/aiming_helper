@@ -3,11 +3,11 @@ schema_version = "1.0.0"
 id = "aiming_helper"
 version = "1.0.0"
 name = "Aiming Helper"
-tagline = "A visualization helper for aligning sights."
+tagline = "A visual helper for aligning sights."
 maintainer = "Hartface <hartfacedev@gmail.com>"
 type = "add-on"
 
-tags = ["User Interface"]
+tags = ["3D View"]
 
 blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
