@@ -29,8 +29,10 @@ class AimingHelperProperties(bpy.types.PropertyGroup):
 
 
 def register():
+    bpy.utils.register_class(AimingHelperProperties)
     bpy.types.Scene.aiming_helper = bpy.props.PointerProperty(type=AimingHelperProperties)
 
 
 def unregister():
     del bpy.types.Scene.aiming_helper
+    bpy.utils.unregister_class(AimingHelperProperties)
