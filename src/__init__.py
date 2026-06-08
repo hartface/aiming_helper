@@ -1,12 +1,15 @@
 import bpy
 
 
+from . import panels
+
+
 def register():
-    pass
+    panels.register()
 
 
 def unregister():
-    pass
+    panels.unregister()
 
 
 if __name__ == "__main__":
