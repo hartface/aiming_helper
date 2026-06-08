@@ -1,10 +1,4 @@
-bl_info = {
-    "name": "Aiming Helper",
-    "author": "Hartface",
-    "description": "A visualizing tool, to help with aligning sights.",
-    "version": (1, 0, 0),
-    "blender": (5, 0, 0),
-}
+import bpy
 
 
 def register():
