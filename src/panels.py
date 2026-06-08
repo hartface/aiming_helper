@@ -25,8 +25,6 @@ class AIMING_HELPER_PT_panel(bpy.types.Panel):
             obj    = getattr(props, f"{pt}_object")
             icon   = 'CHECKMARK' if is_set else 'LAYER_USED'
             row.label(text=label, icon=icon)
-            if is_set and obj:
-                row.label(text=obj.name)
             op = row.operator("aiming_helper.set_point", text="Pick")
             op.point_type = pt
 
@@ -36,7 +34,7 @@ class AIMING_HELPER_PT_panel(bpy.types.Panel):
 
         vis_text = "Stop Visualizing" if props.visualizing else "Start Visualizing"
         layout.operator("aiming_helper.toggle_visualize", text=vis_text,
-                        icon='HIDE_OFF' if props.visualizing else 'HIDE_ON')
+                        icon='HIDE_ON' if props.visualizing else 'X')
         layout.operator("aiming_helper.clear", text="Clear All", icon='X')
     
 

@@ -99,9 +99,12 @@ class AIMING_HELPER_OT_clear(bpy.types.Operator):
 
     def execute(self, context):
         props = context.scene.aiming_helper
+        props.visualizing = False
+
         for pt in ['eye', 'rear_sight', 'front_sight', 'target']:
             setattr(props, f"{pt}_set",    False)
             setattr(props, f"{pt}_object", None)
+
         return {'FINISHED'}
 
 
