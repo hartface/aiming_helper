@@ -26,3 +26,11 @@ class AimingHelperProperties(bpy.types.PropertyGroup):
         max=1.0,
         description="How strict the alignment check is"
     )
+
+
+def register():
+    bpy.types.Scene.aiming_helper = bpy.props.PointerProperty(type=AimingHelperProperties)
+
+
+def unregister():
+    del bpy.types.Scene.aiming_helper

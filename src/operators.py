@@ -103,3 +103,25 @@ class AIMING_HELPER_OT_clear(bpy.types.Operator):
             setattr(props, f"{pt}_set",    False)
             setattr(props, f"{pt}_object", None)
         return {'FINISHED'}
+
+
+def register():
+    bpy.utils.register_class(AIMING_HELPER_OT_set_point)
+    bpy.utils.register_class(AIMING_HELPER_OT_toggle_visualize)
+    bpy.utils.register_class(AIMING_HELPER_OT_clear)
+
+
+def unregister():
+    global _draw_handle, _draw_handle_2d
+
+    if _draw_handle:
+        bpy.types.SpaceView3D.draw_handler_remove(_draw_handle, 'WINDOW')
+    if _draw_handle_2d:
+        bpy.types.SpaceView3D.draw_handler_remove(_draw_handle_2d, 'WINDOW')
+
+    _draw_handle    = None
+    _draw_handle_2d = None
+
+    bpy.utils.unregister_class(AIMING_HELPER_OT_clear)
+    bpy.utils.unregister_class(AIMING_HELPER_OT_toggle_visualize)
+    bpy.utils.unregister_class(AIMING_HELPER_OT_set_point)
