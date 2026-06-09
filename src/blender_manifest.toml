@@ -3,7 +3,7 @@ schema_version = "1.0.0"
 id = "aiming_helper"
 version = "1.0.0"
 name = "Aiming Helper"
-tagline = "A visual helper for aligning sights."
+tagline = "A visual helper for aligning sights"
 maintainer = "Hartface <hartfacedev@gmail.com>"
 type = "add-on"
 
