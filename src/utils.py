@@ -7,19 +7,17 @@ from gpu_extras.batch import batch_for_shader
 
 
 def get_world_positions(props):
-
     points = []
     pairs = [
-        (props.eye_set,         props.eye_object,         props.eye_local_pos),
-        (props.rear_sight_set,  props.rear_sight_object,  props.rear_sight_local_pos),
-        (props.front_sight_set, props.front_sight_object, props.front_sight_local_pos),
-        (props.target_set,      props.target_object,      props.target_local_pos),
+        (props.eye_set,         props.eye_object,         props.eye_local_pos,         'Eye'),
+        (props.rear_sight_set,  props.rear_sight_object,  props.rear_sight_local_pos,  'Rear Sight'),
+        (props.front_sight_set, props.front_sight_object, props.front_sight_local_pos, 'Front Sight'),
+        (props.target_set,      props.target_object,      props.target_local_pos,      'Target'),
     ]
-
-    for is_set, obj, local_pos in pairs:
+    for is_set, obj, local_pos, label in pairs:
         if is_set and obj:
             world_pos = obj.matrix_world @ Vector(local_pos)
-            points.append(world_pos)
+            points.append((world_pos, label))
     return points
 
 
@@ -67,7 +65,8 @@ def draw_callback_3d(self, context):
     if not props.visualizing:
         return
 
-    points = get_world_positions(props)
+    point_data = get_world_positions(props)
+    points = [p for p, _ in point_data] 
     if len(points) < 2:
         return
 
@@ -109,7 +108,8 @@ def draw_callback_2d(self, context):
     if not props.visualizing:
         return
 
-    points = get_world_positions(props)
+    point_data = get_world_positions(props)
+    points = [p for p, _ in point_data]
     region = context.region
     rv3d   = context.region_data
     font_id = 0
@@ -119,9 +119,8 @@ def draw_callback_2d(self, context):
 
     from bpy_extras.view3d_utils import location_3d_to_region_2d
 
-    # Labels and angles at each point
-    labels = ['Eye', 'Rear', 'Front', 'Target']
-    for i, (p, label) in enumerate(zip(points, labels)):
+
+    for i, (p, label) in enumerate(point_data):
         screen_pos = location_3d_to_region_2d(region, rv3d, p)
         if screen_pos is None:
             continue
