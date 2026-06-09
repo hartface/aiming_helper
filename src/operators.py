@@ -106,6 +106,8 @@ class AIMING_HELPER_OT_clear(bpy.types.Operator):
             setattr(props, f"{pt}_set",    False)
             setattr(props, f"{pt}_object", None)
 
+       
+        context.area.tag_redraw()
         return {'FINISHED'}
 
 
