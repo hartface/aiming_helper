@@ -1,5 +1,7 @@
 # Aiming Helper
 
+![Cover](https://hartface.github.io/images/AimingHelper/cover.png "Cover")
+
 A Blender addon for visualizing and aligning sights on weapon models.
 Useful for game asset artists who need to verify that eye, rear sight,
 front sight and target are properly aligned.
