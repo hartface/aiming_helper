@@ -1,5 +1,3 @@
-# Aiming Helper
-
 ![Cover](https://hartface.github.io/images/AimingHelper/AimingHelperCover.png "Cover")
 
 A Blender addon for visualizing and aligning sights on weapon models.
